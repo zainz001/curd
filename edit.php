@@ -17,10 +17,10 @@ include('dbconnect.php')
     <h3> edit student into curd operation<a href="index.php">back</a></h3>
     <?php
     if (isset($_GET['id'])) {
-        $adding_id=$_GET ['id'];
-        $query= "SELECT * from adding where id=:addin_id LIMIT 1" ;
+        $stu_id=$_GET ['id'];
+        $query= "SELECT * from students where id=:stu_id LIMIT 1" ;
         $statement= $conn->prepare($query);
-        $data=[':addin_id'=>$adding_id];
+        $data=[':stu_id'=>$stu_id];
         $statement->execute($data);
        $result= $statement-> fetch(PDO::FETCH_ASSOC);
     }
