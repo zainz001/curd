@@ -20,13 +20,15 @@ include('dbconnect.php')
         $stu_id=$_GET ['id'];
         $query= "SELECT * from students where id=:stu_id LIMIT 1" ;
         $statement= $conn->prepare($query);
-        $data=[':stu_id'=>$stu_id];
+        $data=
+        
+        [':stu_id'=>$stu_id];
         $statement->execute($data);
        $result= $statement-> fetch(PDO::FETCH_ASSOC);
     }
     ?>
     <form action="code.php" method="post">
-    <input type="hidden" name = "student_id" value="<?=$result['id'];?>">
+    <input type="hidden" name = "stu_id" value="<?=$result['id'];?>">
     <br>
     <label >username</label>
     <input type="text" name="username" value="<?=$result['username'];?>" class="formcontrol">
