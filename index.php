@@ -22,13 +22,14 @@
                 <th>email</th>
                 <th>phone</th>
                 <th>course</th>
+                <th>edit</th>
             </tr>
         </thead>
             <tbody>
                 <?php 
                 $query= "SELECT * from students";
                 $statement=$conn->prepare($query);
-                $statement->execte();
+                $statement-> execute();
 
                 $result=$statement->fetchall();
                 if ($result) {
@@ -37,6 +38,13 @@
                         ?>
                         <tr>
                             <td><?= $row['id'];?> </td>
+                            <td><?= $row['username'];?> </td>
+                            <td><?= $row['email'];?> </td>
+                            <td><?= $row['phone'];?> </td>
+                            <td><?= $row['course'];?> </td>
+                            <td>
+                                <a href="edit.php?id=<?=$row['id'];?>">edit</a>
+                            </td>
                         </tr>
                         <?php
                     }

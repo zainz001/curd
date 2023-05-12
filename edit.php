@@ -39,7 +39,7 @@ include('dbconnect.php')
     <label >course</label>
     <input type="text" name="course"value="<?=$result['course'];?>"  class="formcontrol">
     <br>
-    <button type="submit" name="save_student_button">save button</button>
+    <button type="submit" name="update_student_button">update button</button>
 </form>
 
     </div>
