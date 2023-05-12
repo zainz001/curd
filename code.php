@@ -1,15 +1,18 @@
 <?php
 session_start();
 include('dbconnect.php');
+
+
+
 if (isset($post['update_student_button'])) {
-    $stu_id=$post['stu_id'];
+    $student_id=$post['student_id'];
     $username =$_POST['username'];
     $email =$_POST['email'];
     $phone =$_POST['phone'];
     $course =$_POST['course'];
 
     try {
-        $query ="UPDATE students set username=:username, email=:email, phone=:phone, course=:course where id=:stu_id";
+        $query ="UPDATE students set username=:username, email=:email, phone=:phone, course=:course where id=:stu_id limit 1";
         $statement = $conn->prepare($query);
         
         $data =[
@@ -19,6 +22,7 @@ if (isset($post['update_student_button'])) {
             ':phone'=>$phone,
             ':course'=>$course,
             ':stu_id'=>$student_id,
+            
         ];
  
         $query_execute=$statement->execute();
@@ -32,10 +36,12 @@ if (isset($post['update_student_button'])) {
             exit(0);
            }
            
-    } catch (PDOexception $e) {
+    }
+     catch (PDOexception $e) {
         echo $e->getmessage();
     }
 }
+
 if(isset($_POST['save_student_button']))
 {
    

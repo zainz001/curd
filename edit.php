@@ -26,7 +26,8 @@ include('dbconnect.php')
     }
     ?>
     <form action="code.php" method="post">
-    
+    <input type="hidden" name = "student_id" value="<?=$result['id'];?>">
+    <br>
     <label >username</label>
     <input type="text" name="username" value="<?=$result['username'];?>" class="formcontrol">
     <br>
