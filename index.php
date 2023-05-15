@@ -23,6 +23,7 @@
                 <th>phone</th>
                 <th>course</th>
                 <th>edit</th>
+                <th>delete</th>
             </tr>
         </thead>
             <tbody>
@@ -44,6 +45,11 @@
                             <td><?= $row['course'];?> </td>
                             <td>
                                 <a href="edit.php?id=<?=$row['id'];?>">edit</a>
+                            </td>
+                            <td>
+                                <form action="" method="post">
+                                    <button type="submit" name="delete" value="<?=$row['id'];?>" class="btn btn-danger">delete</button>
+                                </form>
                             </td>
                         </tr>
                         <?php

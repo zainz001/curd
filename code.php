@@ -2,6 +2,20 @@
 session_start();
 include('dbconnect.php');
 
+if (isset($_POST['delete']))
+{
+$stu_id=$_POST['delete'];
+try {
+    $query="DELETE from students where id=:stu_id";
+    $statement=$conn->prepare($query);
+    $data=[
+        '$stu_id'=>$stu_id
+    ];
+    
+} catch (PDOException $e) {
+    echo $e->getMessage();
+}    
+}
 
 try {
 
